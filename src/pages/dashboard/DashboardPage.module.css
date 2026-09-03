@@ -62,7 +62,7 @@
 }
 
 .statCard {
-  background: linear-gradient(135deg, rgba(99,102,241,0.06) 0%, rgba(12,12,20,0.8) 100%);
+  background: linear-gradient(160deg, rgba(99,102,241,0.10) 0%, rgba(13,13,26,0.85) 35%, rgba(8,8,18,0.9) 100%);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   padding: 24px;
@@ -70,6 +70,26 @@
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  box-shadow: 0 8px 28px rgba(32, 32, 96, 0.18), 0 0 0 1px rgba(129,140,248,0.04) inset;
+}
+
+/* Glass reflective sheen sweeping across */
+.statCard::after {
+  content: '';
+  position: absolute;
+  top: -120%;
+  left: -60%;
+  width: 60%;
+  height: 220%;
+  transform: rotate(20deg);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+  animation: sheen 5.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes sheen {
+  0% { left: -60%; }
+  60%, 100% { left: 140%; }
 }
 
 .statCard::before {
@@ -82,14 +102,14 @@
   background: var(--gradient-primary);
   background-size: 200% 100%;
   animation: gradientShift 4s ease infinite;
-  opacity: 0;
+  opacity: 0.35;
   transition: opacity 0.3s;
 }
 
 .statCard:hover {
-  transform: translateY(-4px) scale(1.02);
-  border-color: rgba(99,102,241,0.4);
-  box-shadow: var(--glow-purple), 0 12px 40px rgba(0,0,0,0.3);
+  transform: translateY(-6px) scale(1.02);
+  border-color: rgba(129,140,248,0.5);
+  box-shadow: var(--glow-purple), 0 16px 48px rgba(30, 30, 110, 0.35);
 }
 
 .statCard:hover::before {
@@ -129,16 +149,34 @@
 
 .appInfoCard,
 .appListCard {
-  background: linear-gradient(180deg, rgba(18,18,30,0.8) 0%, rgba(12,12,20,0.9) 100%);
+  background: linear-gradient(160deg, rgba(99,102,241,0.05) 0%, rgba(18,18,30,0.78) 30%, rgba(10,10,22,0.9) 100%);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   padding: 24px;
-  transition: border-color 0.3s;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 10px 30px rgba(28, 28, 104, 0.15);
+}
+
+.appInfoCard::after,
+.appListCard::after {
+  content: '';
+  position: absolute;
+  top: -120%;
+  left: -60%;
+  width: 55%;
+  height: 220%;
+  transform: rotate(20deg);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+  animation: sheen 6.5s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .appInfoCard:hover,
 .appListCard:hover {
-  border-color: rgba(99,102,241,0.3);
+  border-color: rgba(129,140,248,0.35);
+  box-shadow: var(--glow-purple), 0 12px 36px rgba(28, 28, 110, 0.25);
 }
 
 .cardTitle {
@@ -854,16 +892,52 @@
 }
 
 .sectionCard {
-  background: linear-gradient(180deg, rgba(18,18,30,0.7) 0%, rgba(12,12,20,0.85) 100%);
+  background: linear-gradient(160deg, rgba(99,102,241,0.06) 0%, rgba(18,18,30,0.72) 30%, rgba(9,9,20,0.85) 100%);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   padding: 24px;
   margin-bottom: 22px;
-  transition: border-color 0.3s;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  box-shadow: 0 10px 32px rgba(28, 28, 104, 0.16);
+}
+
+.sectionCard::after {
+  content: '';
+  position: absolute;
+  top: -120%;
+  left: -60%;
+  width: 55%;
+  height: 220%;
+  transform: rotate(20deg);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+  animation: sheen 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.sectionCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+  background-size: 200% 100%;
+  animation: gradientShift 4s ease infinite;
+  opacity: 0.25;
+  transition: opacity 0.3s;
 }
 
 .sectionCard:hover {
-  border-color: rgba(99,102,241,0.25);
+  border-color: rgba(129,140,248,0.4);
+  box-shadow: var(--glow-purple), 0 14px 40px rgba(28, 28, 110, 0.3);
+  transform: translateY(-2px);
+}
+
+.sectionCard:hover::before {
+  opacity: 1;
 }
 
 .grid2 {

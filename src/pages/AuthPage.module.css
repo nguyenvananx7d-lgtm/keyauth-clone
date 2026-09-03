@@ -3,10 +3,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--bg-primary);
+  background: transparent;
   position: relative;
   overflow: hidden;
   padding: 28px;
+  z-index: 1;
 }
 
 .page::before {
@@ -68,15 +69,31 @@
 .card {
   width: 100%;
   max-width: 420px;
-  background: rgba(12, 12, 20, 0.85);
-  border: 1px solid var(--border-strong);
+  background: linear-gradient(160deg, rgba(99,102,241,0.10) 0%, rgba(15,15,30,0.78) 40%, rgba(8,8,18,0.9) 100%);
+  border: 1px solid rgba(129,140,248,0.28);
   border-radius: var(--radius-lg);
   padding: 40px;
   position: relative;
   z-index: 1;
-  backdrop-filter: blur(20px);
-  box-shadow: var(--shadow-pop), 0 0 60px rgba(99,102,241,0.08);
+  backdrop-filter: blur(22px) saturate(150%);
+  -webkit-backdrop-filter: blur(22px) saturate(150%);
+  box-shadow: var(--glow-purple), 0 24px 70px rgba(0,0,0,0.6);
+  overflow: hidden;
   animation: cardIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* sheen sweep across card */
+.card::after {
+  content: '';
+  position: absolute;
+  top: -130%;
+  left: -60%;
+  width: 60%;
+  height: 260%;
+  transform: rotate(20deg);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+  animation: sheen 5s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .card::before {
@@ -90,6 +107,7 @@
   background-size: 200% 100%;
   animation: gradientShift 3s ease infinite;
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  z-index: 1;
 }
 
 @keyframes cardIn {

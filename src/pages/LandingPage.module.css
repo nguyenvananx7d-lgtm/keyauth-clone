@@ -1,9 +1,10 @@
 .page {
   min-height: 100vh;
-  background: var(--bg-primary);
+  background: transparent;
   color: var(--text-primary);
   position: relative;
   overflow-x: hidden;
+  z-index: 1;
 }
 
 /* Floating particles */
@@ -558,7 +559,7 @@
 }
 
 .featureCard {
-  background: rgba(12,12,20,0.7);
+  background: linear-gradient(160deg, rgba(99,102,241,0.06) 0%, rgba(13,13,26,0.75) 35%, rgba(9,9,20,0.9) 100%);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   padding: 28px;
@@ -566,6 +567,7 @@
   position: relative;
   overflow: hidden;
   height: 100%;
+  box-shadow: 0 10px 32px rgba(30, 30, 104, 0.16);
 }
 
 .featureCard::before {
@@ -709,7 +711,7 @@
 }
 
 .pricingCard {
-  background: rgba(12,12,20,0.7);
+  background: linear-gradient(160deg, rgba(99,102,241,0.06) 0%, rgba(13,13,26,0.78) 35%, rgba(9,9,20,0.92) 100%);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 32px;
@@ -717,6 +719,7 @@
   position: relative;
   overflow: hidden;
   height: 100%;
+  box-shadow: 0 10px 34px rgba(30, 30, 104, 0.18);
 }
 
 .pricingCard:hover {
