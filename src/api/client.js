@@ -24,6 +24,8 @@ export const api = {
   // Auth
   register: (body) => request('POST', '/api/auth/register', body),
   login: (body) => request('POST', '/api/auth/login', body),
+  oauthStart: (provider) => request('GET', `/api/auth/oauth/${provider}/start`),
+  oauthCallback: (provider, body) => request('POST', `/api/auth/oauth/${provider}/callback`, body),
 
   // Applications
   getApps: () => request('GET', '/api/applications'),

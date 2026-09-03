@@ -5,6 +5,7 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 
 import authRoutes from './routes/auth.js'
+import oauthRoutes from './routes/oauth.js'
 import appRoutes from './routes/applications.js'
 import licenseRoutes from './routes/licenses.js'
 import userRoutes from './routes/appUsers.js'
@@ -27,6 +28,7 @@ app.use(express.json())
 
 // API routes
 app.use('/api/auth', authRoutes)
+app.use('/api/auth/oauth', oauthRoutes)
 app.use('/api/applications', appRoutes)
 app.use('/api/applications/:appId/licenses', licenseRoutes)
 app.use('/api/applications/:appId/users', userRoutes)

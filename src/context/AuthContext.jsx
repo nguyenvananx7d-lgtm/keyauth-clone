@@ -40,6 +40,14 @@ export function AuthProvider({ children }) {
     return data
   }
 
+  const loginOAuth = (data) => {
+    localStorage.setItem('keyauth_token', data.token)
+    const u = { ...data.user, avatar: data.user.avatar || data.user.username[0].toUpperCase() }
+    setUser(u)
+    localStorage.setItem('keyauth_user', JSON.stringify(u))
+    return data
+  }
+
   const logout = () => {
     setUser(null)
     localStorage.removeItem('keyauth_user')
@@ -47,7 +55,7 @@ export function AuthProvider({ children }) {
   }
 
   return (
-    <AuthContext.Provider value={{ user, login, register, logout }}>
+    <AuthContext.Provider value={{ user, login, register, loginOAuth, logout }}>
       {children}
     </AuthContext.Provider>
   )
