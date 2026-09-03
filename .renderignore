@@ -1,0 +1,7 @@
+# Render ignore file
+.git
+.github
+.vscode
+*.log
+*.md
+!README.md

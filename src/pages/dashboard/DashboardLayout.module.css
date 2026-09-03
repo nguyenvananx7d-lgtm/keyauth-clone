@@ -1,0 +1,342 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background: #0d1117;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  background: #161b22;
+  border-right: 1px solid #21262d;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  overflow-y: auto;
+  z-index: 50;
+}
+
+.sidebarTop {
+  padding: 16px;
+  border-bottom: 1px solid #21262d;
+}
+
+.sidebarLogo {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  color: #e6edf3;
+  text-decoration: none;
+  margin-bottom: 12px;
+}
+
+.appSelector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  text-decoration: none;
+  color: #e6edf3;
+}
+
+.appSelector:hover {
+  border-color: #8b949e;
+  text-decoration: none;
+}
+
+.appSelectorActive {
+  border-color: #1f6feb;
+  background: rgba(31,111,235,0.08);
+}
+
+.appSelectorIcon {
+  font-size: 14px;
+  color: #8b949e;
+}
+
+.appName {
+  font-size: 13px;
+  font-weight: 600;
+  color: #e6edf3;
+  flex: 1;
+}
+
+.sidebarNav {
+  padding: 8px 0;
+  flex: 1;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  font-size: 13px;
+  color: #8b949e;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+  cursor: pointer;
+}
+
+.navItem:hover {
+  background: #21262d;
+  color: #e6edf3;
+  text-decoration: none;
+}
+
+.navItemActive {
+  background: #21262d;
+  color: #e6edf3;
+  border-left: 2px solid #1f6feb;
+}
+
+.navItemDisabled {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  font-size: 13px;
+  color: #6e7681;
+  cursor: default;
+}
+
+.navIcon {
+  font-size: 14px;
+  width: 18px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* MAIN */
+.main {
+  flex: 1;
+  margin-left: 220px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* TOPBAR */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: #161b22;
+  border-bottom: 1px solid #21262d;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  gap: 16px;
+}
+
+.topbarSearch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 6px 12px;
+  flex: 1;
+  max-width: 400px;
+}
+
+.searchIcon {
+  font-size: 13px;
+  color: #6e7681;
+}
+
+.searchSvg {
+  width: 14px;
+  height: 14px;
+  color: #6e7681;
+  flex-shrink: 0;
+}
+
+.searchInput {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #e6edf3;
+  font-size: 13px;
+  width: 100%;
+}
+
+.searchInput::placeholder {
+  color: #6e7681;
+}
+
+.topbarRight {
+  position: relative;
+}
+
+.userBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+
+.userBtn:hover {
+  background: #21262d;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #1f6feb;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.avatarLg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #1f6feb;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.userName {
+  font-size: 13px;
+  font-weight: 600;
+  color: #e6edf3;
+}
+
+.userRole {
+  font-size: 11px;
+  color: #6e7681;
+}
+
+.userEmail {
+  font-size: 11px;
+  color: #6e7681;
+}
+
+.userMenu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  min-width: 220px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  z-index: 100;
+  overflow: hidden;
+}
+
+.chevronSvg {
+  width: 12px;
+  height: 12px;
+  color: #6e7681;
+  flex-shrink: 0;
+}
+
+.menuBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+}
+
+.userMenuName {
+  font-size: 13px;
+  font-weight: 600;
+  color: #e6edf3;
+}
+
+.userMenuHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+}
+
+.userMenuDivider {
+  height: 1px;
+  background: #21262d;
+}
+
+.userMenuItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 16px;
+  background: transparent;
+  border: none;
+  color: #8b949e;
+  font-size: 13px;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s, color 0.15s;
+}
+
+.userMenuItem:hover {
+  background: #21262d;
+  color: #e6edf3;
+}
+
+.userMenuLogout {
+  color: #f85149;
+}
+
+.userMenuLogout:hover {
+  color: #f85149;
+  background: rgba(248,81,73,0.1);
+}
+
+/* BANNER */
+.banner {
+  background: rgba(210,153,34,0.1);
+  border-bottom: 1px solid rgba(210,153,34,0.3);
+  padding: 8px 24px;
+  font-size: 13px;
+  color: #d29922;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.banner a {
+  color: #d29922;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* CONTENT */
+.content {
+  flex: 1;
+  padding: 24px;
+}

@@ -1,0 +1,17 @@
+✨ CẬP NHẬT THIẾT KẾ MỚI
+
+Đã cải thiện:
+- Background gradient động với animation
+- Navbar với glass morphism effect
+- Buttons với gradient và shine effect
+- Hero title với gradient text animation
+- Dashboard preview với hover effect 3D
+- Feature cards với border animation
+- Smooth transitions và cubic-bezier easing
+
+Bây giờ hãy:
+1. Mở GitHub Desktop
+2. Commit: "Redesign landing page with smooth animations"
+3. Push origin
+4. Đợi Render deploy (~3 phút)
+5. Refresh website để xem!
