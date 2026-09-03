@@ -3,22 +3,35 @@ import { NavLink, Outlet, useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
 import styles from './DashboardLayout.module.css'
 
-const NAV_ITEMS = [
-  { label: 'Licenses',    path: '/app/licenses',      icon: '🎫' },
-  { label: 'Users',       path: '/app/users',         icon: '👥' },
-  { label: 'Tokens',      path: '#',                  icon: '🔑' },
-  { label: 'Subscriptions', path: '/app/subscriptions', icon: '📋' },
-  { label: 'Chats',       path: '#',                  icon: '💬' },
-  { label: 'Sessions',    path: '#',                  icon: '🔗' },
-  { label: 'Webhooks',    path: '/app/webhooks',      icon: '🔔' },
-  { label: 'Files',       path: '#',                  icon: '📁' },
-  { label: 'Variables',   path: '/app/variables',     icon: '⚙️' },
-  { label: 'Rules',       path: '#',                  icon: '📏' },
-  { label: 'Event Logs',  path: '#',                  icon: '📝' },
-  { label: 'Web Loader',  path: '#',                  icon: '🌐' },
-  { label: 'Team',        path: '#',                  icon: '👤' },
-  { label: 'Settings',    path: '/app/settings',      icon: '⚙' },
-  { label: 'Resources',   path: '#',                  icon: '📚' },
+const NAV_SECTIONS = [
+  {
+    title: 'Management',
+    items: [
+      { label: 'Licenses',    path: '/app/licenses',          icon: '🎫' },
+      { label: 'Users',       path: '/app/users',             icon: '👥' },
+      { label: 'Subscriptions', path: '/app/subscriptions',   icon: '📋' },
+      { label: 'Variables',   path: '/app/variables',         icon: '⚙️' },
+      { label: 'Webhooks',    path: '/app/webhooks',          icon: '🔔' },
+    ],
+  },
+  {
+    title: 'Monitoring',
+    items: [
+      { label: 'Tokens',      path: '#', icon: '🔑', disabled: true },
+      { label: 'Sessions',    path: '#', icon: '🔗', disabled: true },
+      { label: 'Event Logs',  path: '#', icon: '📝', disabled: true },
+    ],
+  },
+  {
+    title: 'Configuration',
+    items: [
+      { label: 'Files',       path: '#', icon: '📁', disabled: true },
+      { label: 'Rules',       path: '#', icon: '📏', disabled: true },
+      { label: 'Web Loader',  path: '#', icon: '🌐', disabled: true },
+      { label: 'Team',        path: '#', icon: '👤', disabled: true },
+      { label: 'Settings',    path: '/app/settings',          icon: '🛠️' },
+    ],
+  },
 ]
 
 export default function DashboardLayout() {
@@ -37,7 +50,10 @@ export default function DashboardLayout() {
       {/* Sidebar */}
       <aside className={styles.sidebar}>
         <div className={styles.sidebarTop}>
-          <Link to="/" className={styles.sidebarLogo}>KeyAuth</Link>
+          <div className={styles.sidebarBrand}>
+            <span className={styles.brandMark}>K</span>
+            <Link to="/" className={styles.sidebarLogo}>KeyAuth</Link>
+          </div>
           <NavLink
             to="/app/applications"
             className={({ isActive }) =>
@@ -46,30 +62,46 @@ export default function DashboardLayout() {
           >
             <span className={styles.appSelectorIcon}>⊞</span>
             <span className={styles.appName}>Manage Apps</span>
+            <span className={styles.appChevron}>›</span>
           </NavLink>
         </div>
 
         <nav className={styles.sidebarNav}>
-          {NAV_ITEMS.map((item) => (
-            item.path === '#' ? (
-              <div key={item.label} className={styles.navItemDisabled}>
-                <span className={styles.navIcon}>{item.icon}</span>
-                <span>{item.label}</span>
-              </div>
-            ) : (
-              <NavLink
-                key={item.label}
-                to={item.path}
-                className={({ isActive }) =>
-                  `${styles.navItem} ${isActive ? styles.navItemActive : ''}`
-                }
-              >
-                <span className={styles.navIcon}>{item.icon}</span>
-                <span>{item.label}</span>
-              </NavLink>
-            )
+          {NAV_SECTIONS.map((section) => (
+            <div key={section.title} className={styles.navSection}>
+              <div className={styles.navSectionTitle}>{section.title}</div>
+              {section.items.map((item) => (
+                item.disabled ? (
+                  <div key={item.label} className={styles.navItemDisabled}>
+                    <span className={styles.navIcon}>{item.icon}</span>
+                    <span>{item.label}</span>
+                  </div>
+                ) : (
+                  <NavLink
+                    key={item.label}
+                    to={item.path}
+                    className={({ isActive }) =>
+                      `${styles.navItem} ${isActive ? styles.navItemActive : ''}`
+                    }
+                  >
+                    <span className={styles.navIcon}>{item.icon}</span>
+                    <span>{item.label}</span>
+                  </NavLink>
+                )
+              ))}
+            </div>
           ))}
         </nav>
+
+        <div className={styles.sidebarFooter}>
+          <Link to="/app/applications" className={styles.upgradeCard}>
+            <span className={styles.upgradeIcon}>⚡</span>
+            <div className={styles.upgradeInfo}>
+              <span className={styles.upgradeTitle}>Upgrade to Pro</span>
+              <span className={styles.upgradeDesc}>Unlock all features</span>
+            </div>
+          </Link>
+        </div>
       </aside>
 
       {/* Main */}
