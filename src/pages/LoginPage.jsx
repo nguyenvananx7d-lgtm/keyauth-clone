@@ -32,6 +32,7 @@ export default function LoginPage() {
     <div className={styles.page}>
       <div className={styles.bgBlob1} />
       <div className={styles.bgBlob2} />
+      <div className={styles.bgBlob3} />
       <div className={styles.card}>
         <Link to="/" className={styles.logo}>KeyAuth</Link>
         <p className={styles.subtitle}>

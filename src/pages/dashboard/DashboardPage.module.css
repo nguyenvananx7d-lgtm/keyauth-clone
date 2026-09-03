@@ -5,16 +5,16 @@
   align-items: center;
   gap: 8px;
   font-size: 13px;
-  color: #6e7681;
+  color: #666a8f;
   margin-bottom: 20px;
 }
 
 .breadSep {
-  color: #30363d;
+  color: #2a2a4a;
 }
 
 .breadActive {
-  color: #388bfd;
+  color: #818cf8;
 }
 
 .pageHeader {
@@ -27,17 +27,17 @@
 .pageTitle {
   font-size: 24px;
   font-weight: 700;
-  color: #e6edf3;
+  color: #f0f2ff;
   margin-bottom: 6px;
 }
 
 .pageDesc {
   font-size: 14px;
-  color: #8b949e;
+  color: #a0a3c4;
 }
 
 .pageDesc a {
-  color: #388bfd;
+  color: #818cf8;
 }
 
 /* STATS */
@@ -49,23 +49,34 @@
 }
 
 .statCard {
-  background: #161b22;
-  border: 1px solid #21262d;
-  border-radius: 8px;
+  background: rgba(19, 19, 42, 0.7);
+  border: 1px solid #20203c;
+  border-radius: 14px;
   padding: 20px;
   text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.statCard:hover {
+  transform: translateY(-3px);
+  border-color: rgba(168, 85, 247, 0.4);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.15);
 }
 
 .statValue {
   font-size: 32px;
   font-weight: 700;
-  color: #e6edf3;
+  color: #f0f2ff;
   margin-bottom: 4px;
+  background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .statLabel {
   font-size: 13px;
-  color: #8b949e;
+  color: #a0a3c4;
 }
 
 /* TWO COL */
@@ -79,22 +90,22 @@
 /* CARDS */
 .appInfoCard,
 .appListCard {
-  background: #161b22;
-  border: 1px solid #21262d;
-  border-radius: 8px;
+  background: rgba(19, 19, 42, 0.7);
+  border: 1px solid #20203c;
+  border-radius: 14px;
   padding: 20px;
 }
 
 .cardTitle {
   font-size: 16px;
   font-weight: 600;
-  color: #e6edf3;
+  color: #f0f2ff;
   margin-bottom: 6px;
 }
 
 .cardDesc {
   font-size: 13px;
-  color: #8b949e;
+  color: #a0a3c4;
   margin-bottom: 16px;
 }
 
@@ -123,7 +134,7 @@
 .toggle {
   width: 36px;
   height: 20px;
-  background: #30363d;
+  background: #2a2a4a;
   border-radius: 10px;
   cursor: pointer;
   position: relative;
@@ -136,14 +147,14 @@
   left: 3px;
   width: 14px;
   height: 14px;
-  background: #8b949e;
+  background: #a0a3c4;
   border-radius: 50%;
   transition: transform 0.2s;
 }
 
 .toggleLabel {
   font-size: 13px;
-  color: #8b949e;
+  color: #a0a3c4;
 }
 
 .infoRow {
@@ -153,7 +164,7 @@
 .infoLabel {
   font-size: 11px;
   font-weight: 600;
-  color: #6e7681;
+  color: #666a8f;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-bottom: 4px;
@@ -161,20 +172,20 @@
 
 .infoValue {
   font-size: 13px;
-  color: #e6edf3;
-  background: #0d1117;
-  border: 1px solid #21262d;
-  border-radius: 6px;
+  color: #f0f2ff;
+  background: #0a0a1a;
+  border: 1px solid #20203c;
+  border-radius: 8px;
   padding: 8px 12px;
   font-family: 'Consolas', monospace;
 }
 
 .infoValueCopy {
   font-size: 13px;
-  color: #e6edf3;
-  background: #0d1117;
-  border: 1px solid #21262d;
-  border-radius: 6px;
+  color: #f0f2ff;
+  background: #0a0a1a;
+  border: 1px solid #20203c;
+  border-radius: 8px;
   padding: 8px 12px;
   font-family: 'Consolas', monospace;
   display: flex;
@@ -185,10 +196,10 @@
 
 .infoValueSecret {
   font-size: 13px;
-  color: #e6edf3;
-  background: #0d1117;
-  border: 1px solid #21262d;
-  border-radius: 6px;
+  color: #f0f2ff;
+  background: #0a0a1a;
+  border: 1px solid #20203c;
+  border-radius: 8px;
   padding: 8px 12px;
   font-family: 'Consolas', monospace;
   display: flex;
@@ -215,51 +226,53 @@
 
 .filterBtn {
   background: transparent;
-  border: 1px solid #30363d;
-  border-radius: 6px;
+  border: 1px solid #2a2a4a;
+  border-radius: 8px;
   padding: 6px 14px;
   font-size: 13px;
-  color: #8b949e;
+  color: #a0a3c4;
   cursor: pointer;
   transition: all 0.15s;
 }
 
 .filterBtn:hover {
-  border-color: #8b949e;
-  color: #e6edf3;
+  border-color: #818cf8;
+  color: #f0f2ff;
 }
 
 .filterActive {
-  background: #21262d;
-  border-color: #8b949e;
-  color: #e6edf3;
+  background: #161630;
+  border-color: #818cf8;
+  color: #f0f2ff;
 }
 
 /* APP CARD */
 .appCard {
-  background: #0d1117;
-  border: 1px solid #21262d;
-  border-radius: 8px;
+  background: #0a0a1a;
+  border: 1px solid #20203c;
+  border-radius: 10px;
   padding: 16px;
   margin-bottom: 12px;
   cursor: pointer;
-  transition: border-color 0.15s;
+  transition: border-color 0.15s, transform 0.2s;
 }
 
 .appCard:hover {
-  border-color: #30363d;
+  border-color: #4c4c86;
+  transform: translateY(-2px);
 }
 
 .appCardSelected {
-  border-color: #1f6feb;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.3);
 }
 
 .inlineInput {
-  background: #0d1117;
-  border: 1px solid #1f6feb;
-  border-radius: 4px;
+  background: #0a0a1a;
+  border: 1px solid #6366f1;
+  border-radius: 6px;
   padding: 4px 8px;
-  color: #e6edf3;
+  color: #f0f2ff;
   font-size: 15px;
   font-weight: 700;
   outline: none;
@@ -276,20 +289,20 @@
 .appCardName {
   font-size: 15px;
   font-weight: 700;
-  color: #e6edf3;
+  color: #f0f2ff;
 }
 
 .appCardStats {
   display: flex;
   gap: 20px;
   font-size: 12px;
-  color: #8b949e;
+  color: #a0a3c4;
   margin-bottom: 12px;
   flex-wrap: wrap;
 }
 
 .appCardStats strong {
-  color: #e6edf3;
+  color: #f0f2ff;
 }
 
 .appCardActions {
@@ -307,40 +320,40 @@
 }
 
 .badgeGreen {
-  background: rgba(63,185,80,0.15);
-  color: #3fb950;
-  border: 1px solid rgba(63,185,80,0.3);
+  background: rgba(52,211,153,0.15);
+  color: #34d399;
+  border: 1px solid rgba(52,211,153,0.3);
 }
 
 .badgeYellow {
-  background: rgba(210,153,34,0.15);
-  color: #d29922;
-  border: 1px solid rgba(210,153,34,0.3);
+  background: rgba(251,191,36,0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(251,191,36,0.3);
 }
 
 .badgeRed {
-  background: rgba(248,81,73,0.15);
-  color: #f85149;
-  border: 1px solid rgba(248,81,73,0.3);
+  background: rgba(251,113,133,0.15);
+  color: #fb7185;
+  border: 1px solid rgba(251,113,133,0.3);
 }
 
 .badgeBlue {
-  background: rgba(31,111,235,0.15);
-  color: #388bfd;
-  border: 1px solid rgba(31,111,235,0.3);
+  background: rgba(99,102,241,0.15);
+  color: #818cf8;
+  border: 1px solid rgba(99,102,241,0.3);
 }
 
 .badgeGray {
-  background: rgba(139,148,158,0.15);
-  color: #8b949e;
-  border: 1px solid rgba(139,148,158,0.3);
+  background: rgba(160,163,196,0.15);
+  color: #a0a3c4;
+  border: 1px solid rgba(160,163,196,0.3);
 }
 
 /* ACTION BUTTONS */
 .actionBtn {
   font-size: 12px;
   padding: 5px 12px;
-  border-radius: 6px;
+  border-radius: 8px;
   border: 1px solid transparent;
   cursor: pointer;
   font-weight: 500;
@@ -352,58 +365,60 @@
 }
 
 .actionBtnGreen {
-  background: rgba(63,185,80,0.15);
-  color: #3fb950;
-  border-color: rgba(63,185,80,0.3);
+  background: rgba(52,211,153,0.15);
+  color: #34d399;
+  border-color: rgba(52,211,153,0.3);
 }
 
 .actionBtnBlue {
-  background: rgba(31,111,235,0.15);
-  color: #388bfd;
-  border-color: rgba(31,111,235,0.3);
+  background: rgba(99,102,241,0.15);
+  color: #818cf8;
+  border-color: rgba(99,102,241,0.3);
 }
 
 .actionBtnPurple {
-  background: rgba(139,92,246,0.15);
-  color: #a78bfa;
-  border-color: rgba(139,92,246,0.3);
+  background: rgba(168,85,247,0.15);
+  color: #c084fc;
+  border-color: rgba(168,85,247,0.3);
 }
 
 .actionBtnYellow {
-  background: rgba(210,153,34,0.15);
-  color: #d29922;
-  border-color: rgba(210,153,34,0.3);
+  background: rgba(251,191,36,0.15);
+  color: #fbbf24;
+  border-color: rgba(251,191,36,0.3);
 }
 
 .actionBtnRed {
-  background: rgba(248,81,73,0.15);
-  color: #f85149;
-  border-color: rgba(248,81,73,0.3);
+  background: rgba(251,113,133,0.15);
+  color: #fb7185;
+  border-color: rgba(251,113,133,0.3);
 }
 
 /* BUTTONS */
 .btnPrimary {
-  background: #238636;
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
   color: #fff;
-  border: 1px solid #2ea043;
-  border-radius: 6px;
+  border: none;
+  border-radius: 8px;
   padding: 8px 16px;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
 }
 
 .btnPrimary:hover {
-  background: #2ea043;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(168, 85, 247, 0.5);
 }
 
 .btnOutline {
   background: transparent;
-  color: #e6edf3;
-  border: 1px solid #30363d;
-  border-radius: 6px;
+  color: #f0f2ff;
+  border: 1px solid #2a2a4a;
+  border-radius: 8px;
   padding: 8px 16px;
   font-size: 13px;
   font-weight: 500;
@@ -412,14 +427,14 @@
 }
 
 .btnOutline:hover {
-  background: #21262d;
+  background: #161630;
 }
 
 .btnWarning {
-  background: rgba(210,153,34,0.15);
-  color: #d29922;
-  border: 1px solid rgba(210,153,34,0.3);
-  border-radius: 6px;
+  background: rgba(251,191,36,0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(251,191,36,0.3);
+  border-radius: 8px;
   padding: 8px 16px;
   font-size: 13px;
   font-weight: 500;
@@ -430,14 +445,14 @@
 }
 
 .btnWarning:hover {
-  background: rgba(210,153,34,0.25);
+  background: rgba(251,191,36,0.25);
 }
 
 .btnDanger {
-  background: rgba(248,81,73,0.15);
-  color: #f85149;
-  border: 1px solid rgba(248,81,73,0.3);
-  border-radius: 6px;
+  background: rgba(251,113,133,0.15);
+  color: #fb7185;
+  border: 1px solid rgba(251,113,133,0.3);
+  border-radius: 8px;
   padding: 8px 16px;
   font-size: 13px;
   font-weight: 500;
@@ -446,34 +461,34 @@
 }
 
 .btnDanger:hover {
-  background: rgba(248,81,73,0.25);
+  background: rgba(251,113,133,0.25);
 }
 
 /* SEARCH */
 .searchSmall {
-  background: #0d1117;
-  border: 1px solid #30363d;
-  border-radius: 6px;
+  background: #0a0a1a;
+  border: 1px solid #2a2a4a;
+  border-radius: 8px;
   padding: 7px 12px;
-  color: #e6edf3;
+  color: #f0f2ff;
   font-size: 13px;
   outline: none;
   width: 200px;
 }
 
 .searchSmall::placeholder {
-  color: #6e7681;
+  color: #666a8f;
 }
 
 .searchSmall:focus {
-  border-color: #1f6feb;
+  border-color: #6366f1;
 }
 
 /* EMPTY STATE */
 .emptyState {
   text-align: center;
   padding: 40px;
-  color: #6e7681;
+  color: #666a8f;
   font-size: 14px;
 }
 
@@ -481,7 +496,7 @@
 .modalOverlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.7);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -490,18 +505,19 @@
 }
 
 .modal {
-  background: #161b22;
-  border: 1px solid #30363d;
-  border-radius: 12px;
+  background: #13132a;
+  border: 1px solid #2a2a4a;
+  border-radius: 16px;
   padding: 28px;
   width: 100%;
   max-width: 440px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
 }
 
 .modalTitle {
   font-size: 18px;
   font-weight: 700;
-  color: #e6edf3;
+  color: #f0f2ff;
   margin-bottom: 20px;
 }
 
@@ -523,15 +539,15 @@
 .label {
   font-size: 13px;
   font-weight: 500;
-  color: #8b949e;
+  color: #a0a3c4;
 }
 
 .input {
-  background: #0d1117;
-  border: 1px solid #30363d;
-  border-radius: 6px;
+  background: #0a0a1a;
+  border: 1px solid #2a2a4a;
+  border-radius: 8px;
   padding: 10px 14px;
-  color: #e6edf3;
+  color: #f0f2ff;
   font-size: 14px;
   outline: none;
   transition: border-color 0.2s;
@@ -539,12 +555,12 @@
 }
 
 .input::placeholder {
-  color: #6e7681;
+  color: #666a8f;
 }
 
 .input:focus {
-  border-color: #1f6feb;
-  box-shadow: 0 0 0 3px rgba(31,111,235,0.15);
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
 }
 
 /* TABLE */
@@ -557,18 +573,18 @@
   text-align: left;
   font-size: 12px;
   font-weight: 600;
-  color: #6e7681;
+  color: #666a8f;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   padding: 10px 12px;
-  border-bottom: 1px solid #21262d;
+  border-bottom: 1px solid #20203c;
 }
 
 .table td {
   padding: 12px;
   font-size: 13px;
-  color: #8b949e;
-  border-bottom: 1px solid #21262d;
+  color: #a0a3c4;
+  border-bottom: 1px solid #20203c;
   vertical-align: middle;
 }
 
@@ -577,17 +593,17 @@
 }
 
 .table tr:hover td {
-  background: #21262d;
+  background: #161630;
 }
 
 .tableCode {
   font-family: 'Consolas', monospace;
   font-size: 12px;
-  color: #e6edf3;
-  background: #0d1117;
+  color: #f0f2ff;
+  background: #0a0a1a;
   padding: 3px 8px;
-  border-radius: 4px;
-  border: 1px solid #21262d;
+  border-radius: 6px;
+  border: 1px solid #20203c;
   max-width: 200px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -618,32 +634,32 @@
 }
 
 .iconBtn {
-  background: #21262d;
-  border: 1px solid #30363d;
-  border-radius: 6px;
+  background: #13132a;
+  border: 1px solid #2a2a4a;
+  border-radius: 8px;
   padding: 7px 10px;
-  color: #8b949e;
+  color: #a0a3c4;
   cursor: pointer;
   font-size: 14px;
   transition: all 0.15s;
 }
 
 .iconBtn:hover {
-  background: #30363d;
-  color: #e6edf3;
+  background: #161630;
+  color: #f0f2ff;
 }
 
 .iconBtnRed:hover {
-  background: rgba(248,81,73,0.15);
-  color: #f85149;
-  border-color: rgba(248,81,73,0.3);
+  background: rgba(251,113,133,0.15);
+  color: #fb7185;
+  border-color: rgba(251,113,133,0.3);
 }
 
 /* SECTION CARD */
 .sectionCard {
-  background: #161b22;
-  border: 1px solid #21262d;
-  border-radius: 8px;
+  background: rgba(19, 19, 42, 0.7);
+  border: 1px solid #20203c;
+  border-radius: 14px;
   padding: 20px;
   margin-bottom: 20px;
 }
@@ -657,11 +673,11 @@
 
 /* SELECT */
 .select {
-  background: #0d1117;
-  border: 1px solid #30363d;
-  border-radius: 6px;
+  background: #0a0a1a;
+  border: 1px solid #2a2a4a;
+  border-radius: 8px;
   padding: 10px 14px;
-  color: #e6edf3;
+  color: #f0f2ff;
   font-size: 14px;
   outline: none;
   cursor: pointer;
@@ -669,16 +685,16 @@
 }
 
 .select:focus {
-  border-color: #1f6feb;
+  border-color: #6366f1;
 }
 
 /* TEXTAREA */
 .textarea {
-  background: #0d1117;
-  border: 1px solid #30363d;
-  border-radius: 6px;
+  background: #0a0a1a;
+  border: 1px solid #2a2a4a;
+  border-radius: 8px;
   padding: 10px 14px;
-  color: #e6edf3;
+  color: #f0f2ff;
   font-size: 14px;
   outline: none;
   width: 100%;
@@ -688,7 +704,7 @@
 }
 
 .textarea:focus {
-  border-color: #1f6feb;
+  border-color: #6366f1;
 }
 
 /* CHECKBOX */
@@ -697,7 +713,7 @@
   align-items: center;
   gap: 8px;
   font-size: 13px;
-  color: #8b949e;
+  color: #a0a3c4;
   cursor: pointer;
 }
 
@@ -705,5 +721,5 @@
   width: 16px;
   height: 16px;
   cursor: pointer;
-  accent-color: #1f6feb;
+  accent-color: #6366f1;
 }

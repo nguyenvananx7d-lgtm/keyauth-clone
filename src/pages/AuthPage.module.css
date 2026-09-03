@@ -1,6 +1,6 @@
 .page {
   min-height: 100vh;
-  background: #0d1117;
+  background: #06060f;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,7 +15,7 @@
   left: -150px;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(31,111,235,0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(99,102,241,0.22) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
 }
@@ -26,48 +26,66 @@
   right: -150px;
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(139,92,246,0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(168,85,247,0.20) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.bgBlob3 {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(236,72,153,0.08) 0%, transparent 60%);
   border-radius: 50%;
   pointer-events: none;
 }
 
 .card {
-  background: #161b22;
-  border: 1px solid #30363d;
-  border-radius: 12px;
+  background: rgba(13, 13, 31, 0.9);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  border-radius: 20px;
   padding: 40px;
   width: 100%;
   max-width: 440px;
   position: relative;
   z-index: 1;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(99, 102, 241, 0.1);
 }
 
 .logo {
   display: block;
   text-align: center;
-  font-size: 24px;
-  font-weight: 700;
-  color: #e6edf3;
+  font-size: 26px;
+  font-weight: 800;
+  color: #f0f2ff;
   text-decoration: none;
   margin-bottom: 8px;
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .subtitle {
   text-align: center;
   font-size: 14px;
-  color: #8b949e;
+  color: #a0a3c4;
   margin-bottom: 4px;
 }
 
 .switchText {
   text-align: center;
   font-size: 14px;
-  color: #8b949e;
+  color: #a0a3c4;
   margin-bottom: 24px;
 }
 
 .switchText a {
-  color: #388bfd;
+  color: #818cf8;
   text-decoration: none;
 }
 
@@ -100,15 +118,15 @@
 .label {
   font-size: 13px;
   font-weight: 500;
-  color: #8b949e;
+  color: #a0a3c4;
 }
 
 .input {
-  background: #0d1117;
-  border: 1px solid #30363d;
-  border-radius: 6px;
+  background: #0a0a1a;
+  border: 1px solid #2a2a4a;
+  border-radius: 10px;
   padding: 10px 14px;
-  color: #e6edf3;
+  color: #f0f2ff;
   font-size: 14px;
   outline: none;
   transition: border-color 0.2s;
@@ -116,12 +134,12 @@
 }
 
 .input::placeholder {
-  color: #6e7681;
+  color: #666a8f;
 }
 
 .input:focus {
-  border-color: #1f6feb;
-  box-shadow: 0 0 0 3px rgba(31,111,235,0.15);
+  border-color: #818cf8;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
 }
 
 .passwordChecks {
@@ -132,25 +150,25 @@
 
 .checkItem {
   font-size: 12px;
-  color: #6e7681;
+  color: #666a8f;
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
 .checkOk {
-  color: #3fb950;
+  color: #34d399;
 }
 
 .terms {
   font-size: 12px;
-  color: #6e7681;
+  color: #666a8f;
   text-align: center;
   line-height: 1.6;
 }
 
 .terms a {
-  color: #388bfd;
+  color: #818cf8;
   text-decoration: none;
 }
 
@@ -159,20 +177,22 @@
 }
 
 .submitBtn {
-  background: #238636;
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
   color: #fff;
-  border: 1px solid #2ea043;
-  border-radius: 6px;
+  border: none;
+  border-radius: 10px;
   padding: 12px;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   width: 100%;
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
 }
 
 .submitBtn:hover:not(:disabled) {
-  background: #2ea043;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(168, 85, 247, 0.6);
 }
 
 .submitBtn:disabled {
@@ -185,7 +205,7 @@
   align-items: center;
   gap: 12px;
   margin: 20px 0;
-  color: #6e7681;
+  color: #666a8f;
   font-size: 13px;
 }
 
@@ -194,7 +214,7 @@
   content: '';
   flex: 1;
   height: 1px;
-  background: #21262d;
+  background: #20203c;
 }
 
 .socialBtns {
@@ -204,11 +224,11 @@
 }
 
 .socialBtn {
-  background: #21262d;
-  border: 1px solid #30363d;
-  border-radius: 6px;
+  background: #13132a;
+  border: 1px solid #2a2a4a;
+  border-radius: 10px;
   padding: 10px 14px;
-  color: #8b949e;
+  color: #a0a3c4;
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
@@ -220,7 +240,7 @@
 }
 
 .socialBtn:hover {
-  background: #30363d;
-  border-color: #8b949e;
-  color: #e6edf3;
+  background: #1b1b3a;
+  border-color: #818cf8;
+  color: #f0f2ff;
 }
