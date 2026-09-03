@@ -6,6 +6,45 @@
   overflow-x: hidden;
 }
 
+/* Floating particles */
+.particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  bottom: -10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-blue-hover), var(--accent-purple));
+  box-shadow: 0 0 12px rgba(99,102,241,0.5);
+  animation: rise linear infinite;
+  filter: blur(0.5px);
+}
+
+@keyframes rise {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-110vh) translateX(30px); opacity: 0; }
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.revealVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .page::before {
   content: '';
   position: fixed;
@@ -155,6 +194,50 @@
   padding: 80px 28px 60px;
   position: relative;
   z-index: 1;
+}
+
+/* Cursor spotlight that follows the mouse */
+.spotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: var(--radius-lg);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.hero:hover .spotlight {
+  opacity: 1;
+}
+
+.heroChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: rgba(99,102,241,0.08);
+  border: 1px solid rgba(99,102,241,0.25);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  backdrop-filter: blur(6px);
+}
+
+.heroChipDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 8px rgba(52,211,153,0.8);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 4px rgba(52,211,153,0.5); }
+  50% { box-shadow: 0 0 14px rgba(52,211,153,0.9); }
 }
 
 .heroBg {
@@ -470,6 +553,10 @@
   gap: 20px;
 }
 
+.featureCardWrap {
+  height: 100%;
+}
+
 .featureCard {
   background: rgba(12,12,20,0.7);
   border: 1px solid var(--border);
@@ -478,6 +565,7 @@
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  height: 100%;
 }
 
 .featureCard::before {
@@ -492,34 +580,69 @@
 }
 
 .featureCard:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px) scale(1.02);
   border-color: transparent;
   box-shadow: var(--glow-purple), 0 16px 48px rgba(0,0,0,0.3);
 }
 
-.featureCard:hover::before {
-  opacity: 0.15;
+.featureCard::after {
+  content: '';
+  position: absolute;
+  inset: -150%;
+  background: conic-gradient(from 0deg, transparent 0deg, rgba(168,85,247,0.12) 60deg, transparent 120deg);
+  animation: sweep 4s linear infinite;
+  opacity: 0;
+  transition: opacity 0.4s;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.featureCard:hover::after {
+  opacity: 1;
+}
+
+@keyframes sweep {
+  to { transform: rotate(360deg); }
 }
 
 .featureIcon {
   font-size: 32px;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   display: inline-flex;
-  width: 56px;
-  height: 56px;
-  border-radius: 14px;
-  background: rgba(99,102,241,0.08);
-  border: 1px solid rgba(99,102,241,0.15);
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(99,102,241,0.12) 0%, rgba(168,85,247,0.08) 100%);
+  border: 1px solid rgba(99,102,241,0.2);
   align-items: center;
   justify-content: center;
-  transition: all 0.3s;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 1;
+  color: var(--accent-blue-hover);
 }
 
 .featureCard:hover .featureIcon {
-  background: rgba(99,102,241,0.15);
-  border-color: rgba(99,102,241,0.3);
-  box-shadow: 0 0 20px rgba(99,102,241,0.15);
-  transform: scale(1.1);
+  background: var(--gradient-primary);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: var(--glow-purple);
+  transform: rotate(-8deg) scale(1.12) translateY(-3px);
+  animation: floatIcon 2s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+  0%, 100% { transform: rotate(-8deg) scale(1.12) translateY(-3px); }
+  50% { transform: rotate(-8deg) scale(1.12) translateY(-6px); }
+}
+
+.featureCard:hover .featureIcon svg {
+  animation: iconSpin 4s linear infinite;
+}
+
+@keyframes iconSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .featureTitle {
@@ -543,6 +666,10 @@
   align-items: start;
 }
 
+.pricingWrap {
+  height: 100%;
+}
+
 .pricingCard {
   background: rgba(12,12,20,0.7);
   border: 1px solid var(--border);
@@ -551,6 +678,7 @@
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  height: 100%;
 }
 
 .pricingCard:hover {
