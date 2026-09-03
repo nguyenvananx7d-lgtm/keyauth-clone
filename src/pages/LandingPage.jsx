@@ -182,7 +182,13 @@ export default function LandingPage() {
           {FEATURES.map((f, i) => (
             <RevealBlock key={i} delay={i * 90} className={styles.featureCardWrap}>
               <div className={styles.featureCard}>
-                <div className={styles.featureIcon}>{f.icon}</div>
+                <div className={styles.featureIcon}>
+                  {f.icon}
+                  <span className={styles.spark} style={{ top: '6%', left: '12%', color: '#a855f7', '--sx': '-14px', '--sy': '-16px' }} />
+                  <span className={styles.spark} style={{ top: '85%', left: '8%', color: '#ec4899', '--sx': '-8px', '--sy': '14px' }} />
+                  <span className={styles.spark} style={{ top: '10%', right: '10%', color: '#06b6d4', '--sx': '12px', '--sy': '-12px' }} />
+                  <span className={styles.spark} style={{ bottom: '8%', right: '12%', color: '#6366f1', '--sx': '14px', '--sy': '12px' }} />
+                </div>
                 <h3 className={styles.featureTitle}>{f.title}</h3>
                 <p className={styles.featureDesc}>{f.desc}</p>
               </div>

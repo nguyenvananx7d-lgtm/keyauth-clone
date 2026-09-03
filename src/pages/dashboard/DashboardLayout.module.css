@@ -39,7 +39,7 @@
   border-radius: 10px;
   background: var(--gradient-primary);
   background-size: 200% 200%;
-  animation: gradientShift 4s ease infinite;
+  animation: gradientShift 4s ease infinite, iconHalo2 2.5s ease-in-out infinite;
   color: #fff;
   font-size: 16px;
   font-weight: 800;
@@ -52,8 +52,27 @@
 }
 
 .brandMark:hover {
-  transform: scale(1.05) rotate(-3deg);
+  transform: scale(1.1) rotate(-6deg);
   box-shadow: var(--glow-intense);
+}
+
+.brandMark::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 14px;
+  border: 2px solid transparent;
+  background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899, #6366f1) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s;
+  animation: iconRing 3s linear infinite;
+}
+
+.brandMark:hover::before {
+  opacity: 1;
 }
 
 .sidebarLogo {
@@ -216,15 +235,31 @@
   justify-content: center;
   width: 18px;
   flex-shrink: 0;
+  color: inherit;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s;
 }
 
+/* Idle micro-pulse on all nav icons */
+.navItem .navIcon {
+  animation: iconIdlePulse 3.5s ease-in-out infinite;
+}
+
+/* Wiggle + glow on hover */
 .navItem:hover .navIcon {
+  animation: iconWiggle 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
   color: var(--accent-blue-hover);
+  filter: drop-shadow(0 0 6px rgba(99,102,241,0.7));
 }
 
+/* Active icon: liquid color cycling + floating glow */
 .navItemActive .navIcon {
   color: var(--accent-blue);
-  filter: drop-shadow(0 0 4px rgba(99,102,241,0.4));
+  animation: iconFloat 2.5s ease-in-out infinite;
+}
+
+.navItemActive .navIcon svg {
+  stroke: #818cf8;
+  animation: iconLiquid 4s ease-in-out infinite;
 }
 
 .sidebarFooter {
@@ -395,7 +430,7 @@
   border-radius: 50%;
   background: var(--gradient-primary);
   background-size: 200% 200%;
-  animation: gradientShift 4s ease infinite;
+  animation: gradientShift 4s ease infinite, iconHalo 2.6s ease-in-out infinite;
   color: #fff;
   display: flex;
   align-items: center;
@@ -405,11 +440,31 @@
   flex-shrink: 0;
   box-shadow: 0 0 10px rgba(99,102,241,0.3);
   transition: box-shadow 0.2s, transform 0.2s;
+  position: relative;
+}
+
+.avatar::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  padding: 2px;
+  background: conic-gradient(from 0deg, #6366f1, #a855f7, #ec4899, #06b6d4, #6366f1);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: iconRing 3s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
 .userBtn:hover .avatar {
-  box-shadow: 0 0 20px rgba(99,102,241,0.5);
-  transform: scale(1.05);
+  box-shadow: 0 0 24px rgba(99,102,241,0.6);
+  transform: scale(1.08) rotate(6deg);
+}
+
+.userBtn:hover .avatar::before {
+  opacity: 1;
 }
 
 .avatarLg {
@@ -418,7 +473,7 @@
   border-radius: 50%;
   background: var(--gradient-primary);
   background-size: 200% 200%;
-  animation: gradientShift 4s ease infinite;
+  animation: gradientShift 4s ease infinite, iconHalo 2.6s ease-in-out infinite;
   color: #fff;
   display: flex;
   align-items: center;

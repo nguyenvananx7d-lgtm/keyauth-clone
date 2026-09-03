@@ -612,14 +612,45 @@
   width: 60px;
   height: 60px;
   border-radius: 16px;
-  background: linear-gradient(135deg, rgba(99,102,241,0.12) 0%, rgba(168,85,247,0.08) 100%);
-  border: 1px solid rgba(99,102,241,0.2);
   align-items: center;
   justify-content: center;
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   z-index: 1;
   color: var(--accent-blue-hover);
+  background: rgba(99,102,241,0.08);
+  border: 1px solid rgba(99,102,241,0.2);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Rotating conic color ring around the icon (always visible) */
+.featureIcon::before {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: 20px;
+  padding: 1.5px;
+  background: conic-gradient(from 0deg, #6366f1, #a855f7, #ec4899, #06b6d4, #6366f1);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: iconRing 5s linear infinite, iconHalo2 2.8s ease-in-out infinite;
+  z-index: -1;
+}
+
+/* Sparkle stars that fly out on hover */
+.featureIcon .spark {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 8px currentColor;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.featureCard:hover .spark {
+  animation: sparkleFly 1.2s ease-out;
 }
 
 .featureCard:hover .featureIcon {
@@ -627,17 +658,24 @@
   color: #fff;
   border-color: transparent;
   box-shadow: var(--glow-purple);
-  transform: rotate(-8deg) scale(1.12) translateY(-3px);
-  animation: floatIcon 2s ease-in-out infinite;
+  animation: iconWiggle 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-@keyframes floatIcon {
-  0%, 100% { transform: rotate(-8deg) scale(1.12) translateY(-3px); }
-  50% { transform: rotate(-8deg) scale(1.12) translateY(-6px); }
+.featureCard:hover .featureIcon::before {
+  animation-duration: 1.5s;
+  box-shadow: var(--glow-intense);
 }
 
 .featureCard:hover .featureIcon svg {
-  animation: iconSpin 4s linear infinite;
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.6));
+}
+
+.featureIcon svg {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.featureCard:hover .featureIcon svg {
+  animation: iconSpin 3.5s linear infinite;
 }
 
 @keyframes iconSpin {
