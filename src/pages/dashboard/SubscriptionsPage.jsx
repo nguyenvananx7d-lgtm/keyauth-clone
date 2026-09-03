@@ -6,12 +6,12 @@ const INITIAL_SUBS = []
 export default function SubscriptionsPage() {
   const [subs, setSubs] = useState(INITIAL_SUBS)
   const [showCreate, setShowCreate] = useState(false)
-  const [form, setForm] = useState({ name: '', level: 0, color: '#1f6feb', features: '', price: 0 })
+  const [form, setForm] = useState({ name: '', level: 0, color: '#7c6cf6', features: '', price: 0 })
 
   const createSub = () => {
     if (!form.name) return
     setSubs(prev => [...prev, { ...form, id: Date.now() }])
-    setForm({ name: '', level: 0, color: '#1f6feb', features: '', price: 0 })
+    setForm({ name: '', level: 0, color: '#7c6cf6', features: '', price: 0 })
     setShowCreate(false)
   }
 
@@ -44,14 +44,14 @@ export default function SubscriptionsPage() {
           <div key={sub.id} className={styles.sectionCard} style={{ borderTop: `3px solid ${sub.color}` }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 12 }}>
               <div>
-                <div style={{ fontSize: 18, fontWeight: 700, color: '#e6edf3', marginBottom: 4 }}>{sub.name}</div>
-                <div style={{ fontSize: 13, color: '#8b949e' }}>Level: {sub.level}</div>
+                <div style={{ fontSize: 18, fontWeight: 700, color: 'var(--text-primary)', marginBottom: 4 }}>{sub.name}</div>
+                <div style={{ fontSize: 13, color: 'var(--text-secondary)' }}>Level: {sub.level}</div>
               </div>
               <div style={{ fontSize: 24, fontWeight: 800, color: sub.color }}>
-                ${sub.price}<span style={{ fontSize: 13, fontWeight: 400, color: '#8b949e' }}>/mo</span>
+                ${sub.price}<span style={{ fontSize: 13, fontWeight: 400, color: 'var(--text-secondary)' }}>/mo</span>
               </div>
             </div>
-            <p style={{ fontSize: 13, color: '#8b949e', marginBottom: 16 }}>{sub.features}</p>
+            <p style={{ fontSize: 13, color: 'var(--text-secondary)', marginBottom: 16 }}>{sub.features}</p>
             <div style={{ display: 'flex', gap: 8 }}>
               <button className={`${styles.actionBtn} ${styles.actionBtnBlue}`}>✏️ Edit</button>
               <button className={`${styles.actionBtn} ${styles.actionBtnRed}`} onClick={() => setSubs(prev => prev.filter(s => s.id !== sub.id))}>🗑 Delete</button>

@@ -47,7 +47,7 @@ export default function VariablesPage() {
           <tbody>
             {vars.map(v => (
               <tr key={v.id}>
-                <td style={{ color: '#e6edf3', fontWeight: 600, fontFamily: 'Consolas, monospace' }}>{v.name}</td>
+                <td style={{ color: 'var(--text-primary)', fontWeight: 600, fontFamily: 'Consolas, monospace' }}>{v.name}</td>
                 <td>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                     <span className={styles.tableCode}>

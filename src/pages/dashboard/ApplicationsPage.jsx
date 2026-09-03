@@ -156,7 +156,7 @@ export default function ApplicationsPage() {
           </div>
         ) : (
           <div className={styles.appInfoCard} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 200 }}>
-            <p style={{ color: '#6e7681', fontSize: 14 }}>Create an application to see credentials.</p>
+            <p style={{ color: 'var(--text-muted)', fontSize: 14 }}>Create an application to see credentials.</p>
           </div>
         )}
 

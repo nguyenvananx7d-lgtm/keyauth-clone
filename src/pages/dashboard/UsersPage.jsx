@@ -121,7 +121,7 @@ export default function UsersPage() {
           <table className={styles.table}>
             <thead>
               <tr>
-                <th style={{ width: 40 }}><input type="checkbox" checked={selected.length === filtered.length && filtered.length > 0} onChange={toggleAll} style={{ accentColor: '#1f6feb' }} /></th>
+                <th style={{ width: 40 }}><input type="checkbox" checked={selected.length === filtered.length && filtered.length > 0} onChange={toggleAll} style={{ accentColor: '#7c6cf6' }} /></th>
                 <th>Username</th><th>Email</th><th>HWID</th><th>IP</th>
                 <th>Subscription</th><th>Expires</th><th>Created</th><th>Status</th><th>Actions</th>
               </tr>
@@ -129,8 +129,8 @@ export default function UsersPage() {
             <tbody>
               {filtered.map(user => (
                 <tr key={user.id}>
-                  <td><input type="checkbox" checked={selected.includes(user.id)} onChange={() => toggleSelect(user.id)} style={{ accentColor: '#1f6feb' }} /></td>
-                  <td style={{ color: '#e6edf3', fontWeight: 600 }}>{user.username}</td>
+                  <td><input type="checkbox" checked={selected.includes(user.id)} onChange={() => toggleSelect(user.id)} style={{ accentColor: '#7c6cf6' }} /></td>
+                  <td style={{ color: 'var(--text-primary)', fontWeight: 600 }}>{user.username}</td>
                   <td>{user.email}</td>
                   <td><span className={styles.tableCode}>{user.hwid}</span></td>
                   <td>{user.ip}</td>

@@ -43,10 +43,10 @@ export default function WebhooksPage() {
       <div className={styles.sectionCard}>
         {hooks.length === 0 && <div className={styles.emptyState}>No webhooks yet. Add your first webhook!</div>}
         {hooks.map(hook => (
-          <div key={hook.id} style={{ background: '#0d1117', border: '1px solid #21262d', borderRadius: 8, padding: 16, marginBottom: 12 }}>
+          <div key={hook.id} style={{ background: 'var(--bg-tertiary)', border: '1px solid var(--border)', borderRadius: 8, padding: 16, marginBottom: 12 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 10 }}>
               <div>
-                <div style={{ fontFamily: 'Consolas, monospace', fontSize: 13, color: '#388bfd', marginBottom: 6 }}>{hook.url}</div>
+                <div style={{ fontFamily: 'Consolas, monospace', fontSize: 13, color: 'var(--accent-blue-hover)', marginBottom: 6 }}>{hook.url}</div>
                 <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
                   {hook.events.map(ev => (
                     <span key={ev} className={`${styles.badge} ${styles.badgeBlue}`}>{ev}</span>

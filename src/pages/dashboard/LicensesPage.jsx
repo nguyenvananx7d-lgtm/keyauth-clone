@@ -112,7 +112,7 @@ export default function LicensesPage() {
             <tbody>
               {filtered.map(lic => (
                 <tr key={lic.id}>
-                  <td><input type="checkbox" checked={selected.includes(lic.id)} onChange={() => toggleSelect(lic.id)} style={{ accentColor: '#1f6feb' }} /></td>
+                  <td><input type="checkbox" checked={selected.includes(lic.id)} onChange={() => toggleSelect(lic.id)} style={{ accentColor: '#7c6cf6' }} /></td>
                   <td><span className={styles.tableCode}>{lic.key_value}</span></td>
                   <td><span className={`${styles.badge} ${lic.status === 'used' ? styles.badgeGreen : styles.badgeGray}`}>{lic.status === 'used' ? 'Used' : 'Unused'}</span></td>
                   <td>{lic.duration}</td>

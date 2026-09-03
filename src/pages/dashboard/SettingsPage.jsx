@@ -87,7 +87,7 @@ export default function SettingsPage() {
       {/* Danger zone */}
       <div className={styles.sectionCard} style={{ borderColor: 'rgba(248,81,73,0.3)' }}>
         <h3 className={styles.cardTitle} style={{ color: '#f85149', marginBottom: 8 }}>Danger Zone</h3>
-        <p style={{ fontSize: 13, color: '#8b949e', marginBottom: 16 }}>
+        <p style={{ fontSize: 13, color: 'var(--text-secondary)', marginBottom: 16 }}>
           These actions are irreversible. Please be careful.
         </p>
         <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
