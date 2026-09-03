@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Search, RefreshCw, Trash2 } from 'lucide-react'
 import { api } from '../../api/client'
 import styles from './DashboardPage.module.css'
 
@@ -83,12 +84,12 @@ export default function LicensesPage() {
       <div className={styles.sectionCard}>
         <div className={styles.toolbar}>
           <div className={styles.toolbarLeft}>
-            <input className={styles.searchSmall} placeholder="🔍 Search licenses..." value={search} onChange={e => setSearch(e.target.value)} style={{ width: 240 }} />
+            <input className={styles.searchSmall} placeholder="Search licenses..." value={search} onChange={e => setSearch(e.target.value)} style={{ width: 240 }} />
             {selected.length > 0 && <span className={`${styles.badge} ${styles.badgeBlue}`}>{selected.length} selected</span>}
           </div>
           <div className={styles.toolbarRight}>
-            <button className={styles.iconBtn} title="Refresh" onClick={() => appId && loadLicenses(appId)}>↺</button>
-            <button className={`${styles.iconBtn} ${styles.iconBtnRed}`} title="Delete selected" onClick={deleteSelected} disabled={selected.length === 0}>🗑</button>
+            <button className={styles.iconBtn} title="Refresh" onClick={() => appId && loadLicenses(appId)}><RefreshCw size={14} /></button>
+            <button className={`${styles.iconBtn} ${styles.iconBtnRed}`} title="Delete selected" onClick={deleteSelected} disabled={selected.length === 0}><Trash2 size={14} /></button>
             <button className={styles.btnPrimary} onClick={() => setShowCreate(true)}>+ Create License</button>
           </div>
         </div>
@@ -120,7 +121,7 @@ export default function LicensesPage() {
                   <td>{lic.used_by || '-'}</td>
                   <td style={{ fontSize: 12 }}>{lic.used_at || '-'}</td>
                   <td>{lic.note}</td>
-                  <td><button className={`${styles.actionBtn} ${styles.actionBtnRed}`} onClick={() => deleteLicense(lic.id)}>🗑</button></td>
+                  <td><button className={`${styles.actionBtn} ${styles.actionBtnRed}`} onClick={() => deleteLicense(lic.id)}><Trash2 size={13} /></button></td>
                 </tr>
               ))}
             </tbody>

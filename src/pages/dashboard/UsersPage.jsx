@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Search, Trash2, Ban, Check } from 'lucide-react'
 import { api } from '../../api/client'
 import styles from './DashboardPage.module.css'
 
@@ -108,11 +109,11 @@ export default function UsersPage() {
       <div className={styles.sectionCard}>
         <div className={styles.toolbar}>
           <div className={styles.toolbarLeft}>
-            <input className={styles.searchSmall} placeholder="🔍 Search users..." value={search} onChange={e => setSearch(e.target.value)} style={{ width: 240 }} />
+            <input className={styles.searchSmall} placeholder="Search users..." value={search} onChange={e => setSearch(e.target.value)} style={{ width: 240 }} />
             {selected.length > 0 && <span className={`${styles.badge} ${styles.badgeBlue}`}>{selected.length} selected</span>}
           </div>
           <div className={styles.toolbarRight}>
-            <button className={`${styles.iconBtn} ${styles.iconBtnRed}`} onClick={deleteSelected} disabled={selected.length === 0}>🗑</button>
+            <button className={`${styles.iconBtn} ${styles.iconBtnRed}`} onClick={deleteSelected} disabled={selected.length === 0}><Trash2 size={14} /></button>
             <button className={styles.btnPrimary} onClick={() => setShowCreate(true)}>+ Add User</button>
           </div>
         </div>
@@ -140,8 +141,10 @@ export default function UsersPage() {
                   <td><span className={`${styles.badge} ${user.status === 'active' ? styles.badgeGreen : styles.badgeRed}`}>{user.status === 'active' ? 'Active' : 'Banned'}</span></td>
                   <td>
                     <div style={{ display: 'flex', gap: 6 }}>
-                      <button className={`${styles.actionBtn} ${styles.actionBtnYellow}`} onClick={() => banUser(user)}>{user.status === 'active' ? '🚫 Ban' : '✓ Unban'}</button>
-                      <button className={`${styles.actionBtn} ${styles.actionBtnRed}`} onClick={() => deleteUser(user.id)}>🗑</button>
+                      <button className={`${styles.actionBtn} ${styles.actionBtnYellow}`} onClick={() => banUser(user)}>
+                        {user.status === 'active' ? <><Ban size={13} /> Ban</> : <><Check size={13} /> Unban</>}
+                      </button>
+                      <button className={`${styles.actionBtn} ${styles.actionBtnRed}`} onClick={() => deleteUser(user.id)}><Trash2 size={13} /></button>
                     </div>
                   </td>
                 </tr>

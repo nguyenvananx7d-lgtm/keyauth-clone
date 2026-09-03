@@ -1,36 +1,37 @@
 import { Link } from 'react-router-dom'
+import { Shield, Key, Users, BarChart3, Link2, Smartphone, Check } from 'lucide-react'
 import styles from './LandingPage.module.css'
 
 const LANGS = ['C++', 'Python', 'PHP', 'Node.js', 'TypeScript', 'React', 'Rust', 'Go', 'C#', 'Java']
 
 const FEATURES = [
   {
-    icon: '🔐',
+    icon: <Shield size={28} />,
     title: 'Xác thực an toàn',
     desc: 'Hệ thống xác thực mạnh mẽ với mã hóa end-to-end, bảo vệ ứng dụng của bạn khỏi các mối đe dọa.'
   },
   {
-    icon: '🎫',
+    icon: <Key size={28} />,
     title: 'Quản lý giấy phép',
     desc: 'Tạo, phân phối và quản lý giấy phép phần mềm một cách dễ dàng với hệ thống key linh hoạt.'
   },
   {
-    icon: '👥',
+    icon: <Users size={28} />,
     title: 'Quản lý người dùng',
     desc: 'Theo dõi và quản lý người dùng, phiên đăng nhập, và hoạt động trong thời gian thực.'
   },
   {
-    icon: '📊',
+    icon: <BarChart3 size={28} />,
     title: 'Phân tích thời gian thực',
     desc: 'Dashboard trực quan với số liệu thống kê chi tiết về ứng dụng và người dùng của bạn.'
   },
   {
-    icon: '🔗',
+    icon: <Link2 size={28} />,
     title: 'Webhooks & API',
     desc: 'Tích hợp dễ dàng với hệ thống của bạn thông qua webhooks và REST API mạnh mẽ.'
   },
   {
-    icon: '📱',
+    icon: <Smartphone size={28} />,
     title: 'Đa nền tảng',
     desc: 'Hỗ trợ tất cả ngôn ngữ lập trình phổ biến với SDK và tài liệu đầy đủ.'
   }
@@ -191,7 +192,7 @@ export default function LandingPage() {
               <ul className={styles.planFeatures}>
                 {plan.features.map((f, j) => (
                   <li key={j} className={styles.planFeature}>
-                    <span className={styles.checkIcon}>✓</span> {f}
+                    <span className={styles.checkIcon}><Check size={16} /></span> {f}
                   </li>
                 ))}
               </ul>

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Pencil, Trash2, Eye, EyeOff, Lock, FileText } from 'lucide-react'
 import styles from './DashboardPage.module.css'
 
 const INITIAL_VARS = []
@@ -55,20 +56,20 @@ export default function VariablesPage() {
                     </span>
                     {v.secret && (
                       <button className={styles.copyBtn} onClick={() => setRevealed(r => ({...r, [v.id]: !r[v.id]}))}>
-                        {revealed[v.id] ? '🙈' : '👁'}
+                        {revealed[v.id] ? <EyeOff size={14} /> : <Eye size={14} />}
                       </button>
                     )}
                   </div>
                 </td>
                 <td>
                   <span className={`${styles.badge} ${v.secret ? styles.badgeRed : styles.badgeGray}`}>
-                    {v.secret ? '🔒 Secret' : '📄 Public'}
+                    {v.secret ? <><Lock size={10} /> Secret</> : <><FileText size={10} /> Public</>}
                   </span>
                 </td>
                 <td>
                   <div style={{ display: 'flex', gap: 6 }}>
-                    <button className={`${styles.actionBtn} ${styles.actionBtnBlue}`}>✏️ Edit</button>
-                    <button className={`${styles.actionBtn} ${styles.actionBtnRed}`} onClick={() => setVars(prev => prev.filter(x => x.id !== v.id))}>🗑</button>
+                    <button className={`${styles.actionBtn} ${styles.actionBtnBlue}`}><Pencil size={13} /> Edit</button>
+                    <button className={`${styles.actionBtn} ${styles.actionBtnRed}`} onClick={() => setVars(prev => prev.filter(x => x.id !== v.id))}><Trash2 size={13} /></button>
                   </div>
                 </td>
               </tr>

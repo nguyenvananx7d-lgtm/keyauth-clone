@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Pause, Play, Trash2, Check } from 'lucide-react'
 import styles from './DashboardPage.module.css'
 
 const EVENTS = ['user.login', 'user.register', 'license.used', 'license.expired', 'user.banned']
@@ -58,9 +59,9 @@ export default function WebhooksPage() {
                   {hook.active ? 'Active' : 'Disabled'}
                 </span>
                 <button className={`${styles.actionBtn} ${styles.actionBtnYellow}`} onClick={() => setHooks(prev => prev.map(h => h.id === hook.id ? {...h, active: !h.active} : h))}>
-                  {hook.active ? '⏸ Disable' : '▶ Enable'}
+                  {hook.active ? <><Pause size={13} /> Disable</> : <><Play size={13} /> Enable</>}
                 </button>
-                <button className={`${styles.actionBtn} ${styles.actionBtnRed}`} onClick={() => setHooks(prev => prev.filter(h => h.id !== hook.id))}>🗑</button>
+                <button className={`${styles.actionBtn} ${styles.actionBtnRed}`} onClick={() => setHooks(prev => prev.filter(h => h.id !== hook.id))}><Trash2 size={13} /></button>
               </div>
             </div>
           </div>

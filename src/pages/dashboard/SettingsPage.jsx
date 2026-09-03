@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Trash2, AlertTriangle } from 'lucide-react'
 import { useAuth } from '../../context/AuthContext'
 import styles from './DashboardPage.module.css'
 
@@ -91,8 +92,8 @@ export default function SettingsPage() {
           These actions are irreversible. Please be careful.
         </p>
         <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-          <button className={styles.btnDanger}>🗑 Delete All App Data</button>
-          <button className={styles.btnDanger}>❌ Delete Account</button>
+          <button className={styles.btnDanger}><Trash2 size={13} /> Delete All App Data</button>
+          <button className={styles.btnDanger}><AlertTriangle size={13} /> Delete Account</button>
         </div>
       </div>
     </div>

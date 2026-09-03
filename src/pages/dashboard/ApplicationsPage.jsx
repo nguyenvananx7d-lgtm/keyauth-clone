@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Search, Plus, Check, Pencil, FileText, Pause, Play, Trash2, RefreshCw, Copy, Eye, EyeOff } from 'lucide-react'
 import { api } from '../../api/client'
 import styles from './DashboardPage.module.css'
 
@@ -126,7 +127,7 @@ export default function ApplicationsPage() {
                 <div className={styles.infoValueCopy}>
                   <span>{value}</span>
                   <button className={styles.copyBtn} onClick={() => navigator.clipboard?.writeText(value)} title="Copy">
-                    <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"/><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"/></svg>
+                    <Copy size={14} />
                   </button>
                 </div>
               </div>
@@ -140,18 +141,18 @@ export default function ApplicationsPage() {
                 </span>
                 <button className={styles.copyBtn} onClick={() => setShowSecret(s => ({...s, [activeApp.id]: !s[activeApp.id]}))} title="Toggle">
                   {showSecret[activeApp.id]
-                    ? <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M.143 2.31a.75.75 0 0 1 1.047-.167l14.5 10.5a.75.75 0 1 1-.88 1.214l-2.248-1.628C11.346 13.19 9.792 14 8 14c-3.49 0-6.04-2.548-7.395-4.703a1.947 1.947 0 0 1 0-2.094c.536-.859 1.28-1.847 2.202-2.682L.31 3.357A.75.75 0 0 1 .143 2.31Z"/></svg>
-                    : <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 2c1.981 0 3.671.992 4.933 2.078 1.27 1.091 2.187 2.345 2.637 3.023a1.62 1.62 0 0 1 0 1.798c-.45.678-1.367 1.932-2.637 3.023C11.67 13.008 9.981 14 8 14c-1.981 0-3.671-.992-4.933-2.078C1.797 10.83.88 9.576.43 8.898a1.62 1.62 0 0 1 0-1.798c.45-.677 1.367-1.931 2.637-3.022C4.33 2.992 6.019 2 8 2ZM8 10a2 2 0 1 1-.001-3.999A2 2 0 0 1 8 10Z"/></svg>
+                    ? <EyeOff size={14} />
+                    : <Eye size={14} />
                   }
                 </button>
                 <button className={styles.copyBtn} onClick={() => navigator.clipboard?.writeText(activeApp.secret)} title="Copy">
-                  <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"/><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"/></svg>
+                  <Copy size={14} />
                 </button>
               </div>
             </div>
 
             <button className={styles.btnWarning} onClick={() => refreshSecret(activeApp.id)}>
-              🔄 Refresh Application Secret
+              <RefreshCw size={13} /> Refresh Application Secret
             </button>
           </div>
         ) : (
@@ -192,9 +193,9 @@ export default function ApplicationsPage() {
               <div className={styles.appCardActions} onClick={e => e.stopPropagation()}>
                 <button className={`${styles.actionBtn} ${styles.actionBtnGreen}`} onClick={() => setSelectedApp(app.id)}>✓ Selected</button>
                 <button className={`${styles.actionBtn} ${styles.actionBtnBlue}`} onClick={() => { setRenaming(app.id); setRenamVal(app.name) }}>✏️ Rename</button>
-                <button className={`${styles.actionBtn} ${styles.actionBtnPurple}`}>📝 Edit Description</button>
-                <button className={`${styles.actionBtn} ${styles.actionBtnYellow}`} onClick={() => toggleStatus(app)}>⏸ {app.status === 'active' ? 'Pause' : 'Resume'}</button>
-                <button className={`${styles.actionBtn} ${styles.actionBtnRed}`} onClick={() => deleteApp(app.id)}>🗑 Delete</button>
+                <button className={`${styles.actionBtn} ${styles.actionBtnPurple}`}>                    <FileText size={13} /> Edit Description</button>
+                <button className={`${styles.actionBtn} ${styles.actionBtnYellow}`} onClick={() => toggleStatus(app)}>                    <Pause size={13} /> {app.status === 'active' ? 'Pause' : 'Resume'}</button>
+                <button className={`${styles.actionBtn} ${styles.actionBtnRed}`} onClick={() => deleteApp(app.id)}>                    <Trash2 size={13} /> Delete</button>
               </div>
             </div>
           ))}

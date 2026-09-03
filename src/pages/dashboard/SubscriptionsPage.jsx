@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Pencil, Trash2 } from 'lucide-react'
 import styles from './DashboardPage.module.css'
 
 const INITIAL_SUBS = []
@@ -53,8 +54,8 @@ export default function SubscriptionsPage() {
             </div>
             <p style={{ fontSize: 13, color: 'var(--text-secondary)', marginBottom: 16 }}>{sub.features}</p>
             <div style={{ display: 'flex', gap: 8 }}>
-              <button className={`${styles.actionBtn} ${styles.actionBtnBlue}`}>✏️ Edit</button>
-              <button className={`${styles.actionBtn} ${styles.actionBtnRed}`} onClick={() => setSubs(prev => prev.filter(s => s.id !== sub.id))}>🗑 Delete</button>
+              <button className={`${styles.actionBtn} ${styles.actionBtnBlue}`}><Pencil size={13} /> Edit</button>
+              <button className={`${styles.actionBtn} ${styles.actionBtnRed}`} onClick={() => setSubs(prev => prev.filter(s => s.id !== sub.id))}><Trash2 size={13} /> Delete</button>
             </div>
           </div>
         ))}
